@@ -1,0 +1,32 @@
+{
+	"compilerOptions": {
+		"lib": [
+			"ES2022"
+		],
+		"target": "ES6",
+		"moduleDetection": "force",
+		"module": "CommonJS",
+		"resolveJsonModule": true,
+		"outDir": "./dist",
+		"sourceMap": true,
+		"declaration": true,
+		"removeComments": true,
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noImplicitAny": true,
+		"noImplicitOverride": true,
+		"noUncheckedIndexedAccess": true,
+		"skipLibCheck": true,
+		"allowJs": true
+	},
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"node_modules",
+		"test/**/*",
+		"dist/**/*"
+	]
+}

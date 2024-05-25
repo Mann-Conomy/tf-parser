@@ -1,0 +1,43 @@
+{
+  "name": "@mann-conomy/tf-parser",
+  "version": "1.0.0",
+  "description": "A parser for converting Team Fortress 2 language files to JSON format.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "fix": "eslint -c eslint.config.js . --fix",
+    "lint": "eslint -c eslint.config.js .",
+    "prepublishOnly": "npm run build",
+    "build": "npm run clean && tsc",
+    "clean": "rimraf dist",
+    "test": "jest"
+  },
+  "keywords": [
+    "language",
+    "parser",
+    "file",
+    "tf2",
+    "mann-conomy"
+  ],
+  "author": "The Mann-Conomy Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.12",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "rimraf": "^5.0.7",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.9.0"
+  },
+  "dependencies": {
+    "jsonrepair": "^3.8.0"
+  }
+}
