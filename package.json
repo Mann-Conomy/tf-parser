@@ -15,6 +15,10 @@
     "clean": "rimraf dist",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mann-Conomy/tf-parser.git"
+  },
   "keywords": [
     "language",
     "parser",
@@ -24,6 +28,10 @@
   ],
   "author": "The Mann-Conomy Team",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mann-Conomy/tf-parser/issues"
+  },
+  "homepage": "https://github.com/Mann-Conomy/tf-parser#readme",
   "devDependencies": {
     "@eslint/js": "^9.3.0",
     "@jest/globals": "^29.7.0",
@@ -39,5 +47,9 @@
   },
   "dependencies": {
     "jsonrepair": "^3.8.0"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "test"
   }
 }
