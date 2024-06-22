@@ -1,7 +1,7 @@
 /**
  * Represents a Team Fortress 2 language file parsed into a JSON object.
  */
-export interface TFLanguageFile {
+export interface LanguageFile {
     lang: {
         /**
          * The language of the file.

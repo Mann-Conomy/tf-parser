@@ -1,5 +1,11 @@
 # tf-parser
-A parser for converting Team Fortress 2 language files to JSON format.
+A Node.js parser for converting Team Fortress 2 game files to JSON objects.
+
+[![npm version](https://img.shields.io/npm/v/@mann-conomy/tf-parser?style=flat-square&logo=npm)](https://npmjs.com/package/@mann-conomy/tf-parser)
+[![npm downloads](https://img.shields.io/npm/d18m/@mann-conomy/tf-parser?style=flat-square&logo=npm)](https://npmjs.com/package/@mann-conomy/tf-parser)
+[![Node.js version](https://img.shields.io/node/v/@mann-conomy/tf-parser?style=flat-square&logo=nodedotjs)](https://nodejs.org/en/about/releases/)
+[![GitHub actions](https://img.shields.io/github/actions/workflow/status/Mann-Conomy/tf-parser/test.yml?branch=main&style=flat-square&logo=github&label=test)](https://github.com/Mann-Conomy/tf-parser/blob/main/.github/workflows/test.yml)
+[![GitHub license](https://img.shields.io/github/license/Mann-Conomy/tf-parser?style=flat-square&logo=github)](https://github.com/Mann-Conomy/tf-parser/blob/main/LICENSE)
 
 ## Installation
 
@@ -28,18 +34,17 @@ $ yarn test
 ```
 
 ## Examples
-
 ```js
 import { readFile } from "fs/promises";
-import { TFParser } from "@mann-conomy/tf-parser";
+import { LanguageParser } from "@mann-conomy/tf-parser";
 
 (async () => {
     try {
-        // Read the contents of tf_english.txt
-        const file = await readFile("tf_english.txt");
+        // Read the contents of the tf_english.txt file
+        const file = await readFile("tf_english.txt", { encoding: "utf16le" });
 
         // Parse english language translations
-        const { lang } = TFParser.parse(file);
+        const { lang } = LanguageParser.parse(file);
 
         console.log(lang.Language); // English
         console.log(lang.Tokens.rarity4); // Unusual
@@ -49,7 +54,7 @@ import { TFParser } from "@mann-conomy/tf-parser";
 })();
 ```
 
-Some more examples are available in the [test](https://github.com/Mann-Conomy/tf-parser/tree/main/test) directory.
+Some more examples are available in the [examples](https://github.com/Mann-Conomy/tf-parser/tree/main/examples) and [test](https://github.com/Mann-Conomy/tf-parser/tree/main/test) directories.
 
 ## Documentation
 
