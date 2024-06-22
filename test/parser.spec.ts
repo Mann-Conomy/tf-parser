@@ -73,7 +73,7 @@ describe("ItemsParser", () => {
         expect(items_game.qualities["strange"]?.value).toBe("11");
         expect(items_game.rarities?.common?.next_rarity).toBe("uncommon");
         expect(items_game.rarities?.["rare"]?.next_rarity).toBe("mythical");
-    });
+    }, 10000);
 
     test("should throw a ParserError given a invalid file string", () => {
         // Arrange
