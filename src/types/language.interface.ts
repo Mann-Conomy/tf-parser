@@ -10,8 +10,6 @@ export interface LanguageFile {
         /**
          * An object containing key-value pairs where keys are tokens and values are the corresponding translations.
          */
-        Tokens: {
-            [token: string]: string
-        }
+        Tokens: Record<string, string>;
     }
 }
