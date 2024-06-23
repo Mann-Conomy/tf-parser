@@ -11,7 +11,9 @@ import LanguageParser from "../src/classes/language.parser";
 
         console.log(lang.Language); // English
         console.log(lang.Tokens.rarity4); // Unusual
-    } catch (error) {
-        console.error("Error parsing tf_english.txt", error.message);
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            console.error("Error parsing tf_english.txt", error.message);
+        }
     }
 })();

@@ -4,7 +4,7 @@ import Parser from "../src/classes/parser";
 /**
  * Represents a Team Fortress 2 game file parsed into a JSON object.
  */
-export interface GameFile {
+export interface CustomGameFile {
     /**
      * Regular property with a string value.
      */
@@ -20,17 +20,19 @@ export interface GameFile {
 (async() => {
     try {
         // Read the contents of your chosen Team Fortress 2 game file
-        const file = await readFile("tf_game.txt", { encoding: "utf8" });
+        const file = await readFile("tf_custom_game.txt", { encoding: "utf8" });
 
         // Stringify the file cotents to a JSON object
         const result = Parser.stringify(file);
 
-        // Parse the game file 
-        const game: GameFile = JSON.parse(result);
+        // Parse the game file to a JSON object
+        const customFile: CustomGameFile = JSON.parse(result);
 
-        console.log(game.property); // Regular property
-        console.log(game.custom_object.property); // Nested property
-    } catch (error) {
-        console.error("Error parsing items_game.txt", error.message);
+        console.log(customFile.property); // Access regular properties
+        console.log(customFile.custom_object.property); // Access nested properties
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            console.error("Error parsing tf_custom_game.txt", error.message);
+        }
     }
 })();

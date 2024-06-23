@@ -13,7 +13,9 @@ import ItemsParser from "../src/classes/items.parser";
 
         console.log(items_game.rarities.unusual?.value); // 99
         console.log(items_game.qualities.vintage?.value); // 3
-    } catch (error) {
-        console.error("Error parsing items_game.txt", error.message);
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            console.error("Error parsing items_game.txt", error.message);
+        }
     }
 })();
