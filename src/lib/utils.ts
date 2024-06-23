@@ -1,55 +1,70 @@
+import ParserError from "../classes/parser.error";
+import { ObjectNotation } from "../resources/enums";
+import type { StackObject } from "../types/stack.interface";
+
 /**
- * Sanitizes a Team Fortress 2 language file.
- * @param { string } file A Team Fortress 2 language file.
- * @returns { string } The sanitized language file.
+ * Removes inline comments from the given array of lines.
+ * @param lines The array of lines to process.
+ * @returns The array of lines with inline comments removed.
  */
-export function sanitizeFile(file: string): string {
-    // Remove the ASCII control characters from 1 to 7 from the string
-    return file.replace(/[\x01-\x07]/g, "");
+export function removeInlineComments(lines: string[]): string[] {
+    // Filter out the lines that start with an inline comment
+    return lines.filter(line => line && !line.startsWith("//"));
 }
 
 /**
- * Checks if the line equals an opening or closing brace. 
- * @param { string } line The line string to be checked.
- * @returns { boolean } True if the line string equals an opening or closing curly brace, otherwise false.
+ * Splits the given file into lines, trims each line, and removes inline comments.
+ * @param file The content of the file to process.
+ * @returns The array of lines from the file, with inline comments removed.
+ * @throws A ParserError if the file contains no lines.
  */
-export function isCurlyBrace(line: string): boolean {
-    return line === "{" || line === "}";
-}
+export function getLinesOrThrow(file: string): string[] {
+    const lines = file.split("\n").map(line => line.trim());
 
-/**
- * Checks if the line is a JSON object key or key-value pair.
- * @param { string } line The line string to be checked.
- * @returns { boolean } True if the line is a JSON object key or key-value pair, otherwise false.
- */
-export function isKeyOrKeyValuePair(line: string): boolean {
-    return line.startsWith("\"") && line.endsWith("\"");
-}
-
-/**
- * Appends a colon at the end of a JSON key. 
- * @param line A line of text from a Team Fortress 2 language file.
- * @returns { string } The modified line with a colon appended after the JSON key or the original line if no JSON key is found.
- */
-export function appendColon(line: string): string {
-    const firstQuoteIndex = line.indexOf("\"");
-    const secondQuoteIndex = line.indexOf("\"", firstQuoteIndex + 1);
-
-    if (secondQuoteIndex !== -1) {
-        const beforeSecondQuote = line.slice(0, secondQuoteIndex + 1);
-        const afterSecondQuote = line.slice(secondQuoteIndex + 1);
-
-        return beforeSecondQuote + ":" + afterSecondQuote;
+    if (!Array.isArray(lines) || lines.length === 0) {
+        throw new ParserError("Error processing language file. The file contains no JSON keys and or value pairs.");
     }
 
-    return line;
+    return removeInlineComments(lines);
 }
 
 /**
- * Checks if the line is a JSON key and value pair.
- * @param { string } line The line string to be checked.
- * @returns { boolean } True if the line contains a JSON key and value pair.
+ * Retrieves the last key from the StackObject.
+ * @param element The StackObject to process.
+ * @returns The last key in the StackObject.
+ * @throws A ParserError if the StackObject contains no keys.
  */
-export function isKeyAndValuePair(line: string): boolean {
-    return line.split("\"").length > 4;
+export function getLastKeyOrThrow(element: StackObject): string {
+    const lastKey = Object.keys(element).pop() || null;
+
+    if (lastKey === null) {
+        throw new ParserError("The StackObject contains no JSON keys.");
+    }
+
+    return lastKey;
+}
+
+/**
+ * Splits a line into a key and value pair.
+ * @param line The line to process.
+ * @returns The key and value pair parsed from the line.
+ * @throws A ParserError if the line cannot be split into a key and value pair.
+ */
+export function getKeyAndValuePairOrThrow(line: string) {
+    const [ key = null, value ] = line.split(/"\s*"/).map(element => element.replace(/"/g, ""));
+
+    if (key === null) {
+        throw new ParserError("Error spliting line.");
+    }
+
+    return { key, value };
+}
+
+/**
+ * Checks if the parsed file is empty.
+ * @param file The content of the parsed file.
+ * @returns  True if the file is empty, otherwise false.
+ */
+export function isFileEmpty(file: string) {
+    return file === ObjectNotation.EmptyObject;
 }

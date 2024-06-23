@@ -1,7 +1,11 @@
-import TFParser from "./classes/tf-parser";
-import type { TFLanguageFile } from "./types/tf-parser";
+import ItemsParser from "./classes/items.parser";
+import LanguageParser from "./classes/language.parser";
+import type { ItemsFile } from "./types/items.interface";
+import type { LanguageFile } from "./types/language.interface";
 
 export {
-    TFParser,
-    TFLanguageFile
+    ItemsFile,
+    ItemsParser,
+    LanguageFile,
+    LanguageParser
 };

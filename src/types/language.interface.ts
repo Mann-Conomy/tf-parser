@@ -1,7 +1,7 @@
 /**
  * Represents a Team Fortress 2 language file parsed into a JSON object.
  */
-export interface TFLanguageFile {
+export interface LanguageFile {
     lang: {
         /**
          * The language of the file.
@@ -10,8 +10,6 @@ export interface TFLanguageFile {
         /**
          * An object containing key-value pairs where keys are tokens and values are the corresponding translations.
          */
-        Tokens: {
-            [token: string]: string
-        }
+        Tokens: Record<string, string>;
     }
 }
