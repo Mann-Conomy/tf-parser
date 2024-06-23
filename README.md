@@ -34,6 +34,8 @@ $ yarn test
 ```
 
 ## Examples
+Parsing UTF-16 encoded language files from the Team Fortress 2 game client into JSON objects.
+
 ```js
 import { readFile } from "fs/promises";
 import { LanguageParser } from "@mann-conomy/tf-parser";

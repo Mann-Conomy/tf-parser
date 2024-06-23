@@ -14,7 +14,7 @@ export default class Parser {
     static stringify(file: string): string {
         const stack = new Stack({ populate: true });
 
-        const result = stack.peek();
+        const object = stack.peek();
     
         for(const line of getLinesOrThrow(file)) {
             if (line === ObjectNotation.OpeningBrace) {
@@ -42,6 +42,6 @@ export default class Parser {
             stack.update(key, value);
         }
     
-        return JSON.stringify(result);
+        return JSON.stringify(object);
     }
 }
