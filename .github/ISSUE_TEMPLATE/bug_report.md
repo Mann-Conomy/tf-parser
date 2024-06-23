@@ -27,6 +27,7 @@ A clear and concise description of what happens.
 
 ## Minimal reproducible example
 Calling `LanguageParser.parse()` on the contents of `tf_english.txt` returns "Error parsing tf_english.txt...".
+
 ```js
 import { readFile } from "fs/promises";
 import { LanguageParser } from "@mann-conomy/tf-parser";
