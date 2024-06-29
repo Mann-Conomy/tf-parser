@@ -15,9 +15,9 @@ export default class Stack {
         this.elements = [];
         
         if (options.populate) {
-            const first = this.create();
+            const object = this.create();
             
-            this.elements.push(first);
+            this.elements.push(object);
         }
     }
 

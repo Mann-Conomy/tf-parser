@@ -1,4 +1,5 @@
 # tf-parser
+
 A Node.js parser for converting Team Fortress 2 game files to JSON objects.
 
 [![npm version](https://img.shields.io/npm/v/@mann-conomy/tf-parser?style=flat-square&logo=npm)](https://npmjs.com/package/@mann-conomy/tf-parser)

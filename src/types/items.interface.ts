@@ -156,7 +156,7 @@ export interface PrefabTaunt {
 
 export type GenericItemValue = string | Record<string, string>;
 
-export interface ItemMvMRobits {
+export interface MvMRobits {
     item_class: string;
     item_type_name: string;
     show_in_armory: string;
@@ -977,7 +977,7 @@ export interface DefaultBattleaxe {
     drop_sound: string;
 }
 
-export interface BazaarSniper {
+export interface BazaarBargain {
     enabled: string;
     item_class: string;
     craft_class: string;
@@ -3226,7 +3226,7 @@ export interface ItemPrefab {
         equip_region: string;
         visuals: PrefabVisual;
     };
-    mvm_robits: ItemMvMRobits;
+    mvm_robits: MvMRobits;
     paint_can: PaintCan;
     paint_can_team_color: PaintCanTeamVariant;
     tool_nametag: NametagTool;
@@ -3390,7 +3390,7 @@ export interface ItemPrefab {
     weapon_bat: DefaultBat;
     weapon_sword: DefaultSword;
     weapon_battleaxe: DefaultBattleaxe;
-    weapon_bazaar_sniper: BazaarSniper;
+    weapon_bazaar_sniper: BazaarBargain;
     weapon_blackbox: Blackbox;
     weapon_bonesaw: DefaultBonesaw;
     weapon_bonk: {
@@ -3713,7 +3713,7 @@ export interface ItemKillEaterScoreType {
     allow_bot_victims?: string;
 }
 
-export interface ItemMvMMission {
+export interface MvMMission {
     display_name: string;
     mode: string;
     difficulty: string;
@@ -3722,12 +3722,12 @@ export interface ItemMvMMission {
     mannup_points?: string;
 }
 
-export interface ItemMvMMaps {
+export interface MvMMap {
     display_name: string;
-    missions: Record<string, ItemMvMMission>;
+    missions: Record<string, MvMMission>;
 }
 
-export interface ItemMvMTours {
+export interface MvMTour {
     tour_name: string;
     badge_item_def: string;
     mission_complete_loot_list: string;
@@ -3737,7 +3737,7 @@ export interface ItemMvMTours {
     missions: Record<string, string>;
 }
 
-export interface ItemMatchmakingCategories {
+export interface MatchmakingCategory {
     localized_name: string;
     max_excludes: string;
     valid_match_groups: {
@@ -3760,7 +3760,7 @@ export interface ItemMap {
     maplist: Record<string, ItemMapList>;
 }
 
-export interface ItemMasterMapsList {
+export interface MasterMapsList {
     name: string;
     localizedname: string;
     statsidentifier: string;
@@ -3772,7 +3772,7 @@ export interface ItemMasterMapsList {
     rolling_match_target_tags: Record<string, GenericItemValue>;
 }
 
-export interface ItemSteamPackages {
+export interface SteamPackages {
     localization_key: string;
 }
 
@@ -3784,17 +3784,17 @@ export interface CommunityMarketItemRemap {
     [child: string]: string;
 }
 
-export interface ItemWarDefinitionSide {
+export interface WarDefinitionSide {
     leaderboard_name: string;
     localized_name: string;
 }
 
-export interface ItemWarDefinition {
+export interface WarDefinition {
     name: string;
     localized_name: string;
     start_time: string;
     end_time: string;
-    sides: Record<string, ItemWarDefinitionSide>;
+    sides: Record<string, WarDefinitionSide>;
 }
 
 /**
@@ -3827,14 +3827,14 @@ export interface ItemsFile {
         armory_data: ItemArmoryData,
         item_levels: ItemLevel;
         kill_eater_score_types: Record<string, ItemKillEaterScoreType>;
-        mvm_maps: Record<string, ItemMvMMaps>;
-        mvm_tours: Record<string, ItemMvMTours>;
-        matchmaking_categories: Record<string, ItemMatchmakingCategories>;
+        mvm_maps: Record<string, MvMMap>;
+        mvm_tours: Record<string, MvMTour>;
+        matchmaking_categories: Record<string, MatchmakingCategory>;
         maps: Record<string, ItemMap>;
-        master_maps_list: Record<string, ItemMasterMapsList>;
-        steam_packages: Record<string, ItemSteamPackages>;
+        master_maps_list: Record<string, MasterMapsList>;
+        steam_packages: Record<string, SteamPackages>;
         string_lookups: Record<string, ItemStringLookup>;
         community_market_item_remaps: Record<string, CommunityMarketItemRemap>;
-        war_definitions: Record<string, ItemWarDefinition>;
+        war_definitions: Record<string, WarDefinition>;
     }
 }

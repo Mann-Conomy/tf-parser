@@ -34,14 +34,12 @@ import { LanguageParser } from "@mann-conomy/tf-parser";
 
 (async () => {
     try {
-        // Read the contents of the tf_english.txt file
         const file = await readFile("tf_english.txt", { encoding: "utf16le" });
 
-        // Parse english language translations
         const { lang } = LanguageParser.parse(file);
 
-        console.log(lang.Language); // English
-        console.log(lang.Tokens.rarity4); // Unusual
+        console.log(lang.Language);
+        console.log(lang.Tokens.rarity4);
     } catch (error) {
         console.error("Error parsing tf_english.txt", error.message);
     }
