@@ -20,7 +20,7 @@ describe("LanguageParser", () => {
         const { lang } = LanguageParser.parse(file);
 
         // Assert
-        expect(lang.Language).toBe("english");
+        expect(lang.Language).toBe("English");
         expect(lang.Tokens.rarity1).toBe("Genuine");
         expect(lang.Tokens["rarity4"]).toBe("Unusual");
         expect(lang.Tokens["TF_Tool_PaintCan_11"]).toBeUndefined();
@@ -89,7 +89,7 @@ describe("ItemsParser", () => {
  * @returns { string } A mock string of a Team Fortress 2 language file.
  */
 function createLanguageFile(): string {
-    return "\"lang\"\n\{\n\"Language\"\t\"english\"\n\"Tokens\"\n{\n\"rarity1\"\t\"Genuine\"\n\"rarity4\"\t\"Unusual\"\n}\n}";
+    return "\"lang\"\n\{\n\"Language\"\t\"English\"\n\"Tokens\"\n{\n\"rarity1\"\t\"Genuine\"\n\"rarity4\"\t\"Unusual\"\n}\n}";
 }
 
 /**
