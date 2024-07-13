@@ -1,6 +1,7 @@
 import Parser from "./classes/parser";
 import ItemsParser from "./classes/items.parser";
 import LanguageParser from "./classes/language.parser";
+import { LanguageTranslation } from "./resources/enums";
 import type { ItemsFile } from "./types/items.interface";
 import type { LanguageCode, LanguageFile } from "./types/language.interface";
 
@@ -10,5 +11,6 @@ export {
     ItemsParser,
     LanguageCode,
     LanguageFile,
-    LanguageParser
+    LanguageParser,
+    LanguageTranslation
 };

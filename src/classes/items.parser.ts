@@ -11,7 +11,7 @@ export default class ItemsParser {
      * Parses a Team Fortress 2 items file to JSON.
      * @param file The content of a Team Fortress 2 items file.
      * @returns The items file as a JSON object.
-     * @throws Throws a ParserError if the items file is an empty JSON object.
+     * @throws A ParserError if the items file is an empty JSON object.
      */
     static parse(file: string): ItemsFile {
         const itemsFile = Parser.stringify(file);
