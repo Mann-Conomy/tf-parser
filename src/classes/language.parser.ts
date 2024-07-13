@@ -11,7 +11,7 @@ export default class LanguageParser {
      * Parses a Team Fortress 2 language file to JSON.
      * @param file The content of a Team Fortress 2 language file.
      * @returns The language file as a JSON object.
-     * @throws Throws a ParserError if the language file is an empty JSON object.
+     * @throws A ParserError if the language file is an empty JSON object.
      */
     static parse(file: string): LanguageFile {
         const languageFile = Parser.stringify(file);

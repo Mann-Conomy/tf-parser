@@ -32,7 +32,7 @@ export default class Stack {
     /**
      * Removes and returns the top element of the Stack.
      * @returns The element at the top of the Stack.
-     * @throws Throws a StackError if the Stack is empty.
+     * @throws A StackError if the Stack is empty.
      */
     pop(): StackObject | undefined {
         if (this.isEmpty()) {
@@ -45,17 +45,17 @@ export default class Stack {
     /**
      * Returns the top element of the stack without removing it.
      * @returns The element at the top of the stack.
-     * @throws Throws a StackError if the Stack is empty.
+     * @throws A StackError if the Stack is empty.
      */
     peek(): StackObject {
         if (this.isEmpty()) {
             throw new StackError("Error reading Stack. Cannot peek into an empty Stack.");
         }
 
-        const element = this.elements[this.elements.length - 1] || null;
+        const element = this.elements[this.elements.length - 1];
 
-        if (element === null) {
-            throw new StackError("Error reading Stack. The last Stack element is null.");
+        if (element === undefined) {
+            throw new StackError("Error reading Stack. The last Stack element is undefined.");
         }
 
         return element;
