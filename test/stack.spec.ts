@@ -1,7 +1,7 @@
 import { describe, expect, test } from "@jest/globals";
+import { StackObject } from "../src/types/stack.interface";
 import StackError from "../src/classes/stack.error";
 import Stack from "../src/classes/stack";
-import { StackObject } from "../src/types/stack.interface";
 
 describe("Stack", () => {
     test("should be an instance of the Stack class", () => {
