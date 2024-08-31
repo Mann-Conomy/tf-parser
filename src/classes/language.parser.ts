@@ -17,7 +17,7 @@ export default class LanguageParser {
         const languageFile = Parser.stringify(file);
 
         if (isFileEmpty(languageFile)) {
-            throw new ParserError("Error processing language file. The file contains no JSON keys and or value pairs.");
+            throw new ParserError("The language file contains no JSON keys and or value pairs.");
         }
 
         return JSON.parse(languageFile);

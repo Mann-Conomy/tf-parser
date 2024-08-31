@@ -8,8 +8,10 @@ import type { StackObject } from "../types/stack.interface";
  * @returns The array of lines with inline comments removed.
  */
 export function removeInlineComments(lines: string[]): string[] {
-    // Filter out the lines that start with an inline comment
-    return lines.filter(line => line && !line.startsWith("//"));
+    const quote = String.fromCharCode(34);
+
+    // Filter out the lines that start with an inline comment or contain a single quote
+    return lines.filter(line => line.length > 0 && line !== quote && !line.startsWith("//"));
 }
 
 /**
@@ -24,19 +26,31 @@ function isFirstElementEmpty(lines: string[]): boolean {
 }
 
 /**
+ * Splits the input file content into lines, trims each line, and returns only valid lines.
+ * @param file The content of the file to process.
+ * @returns An array of filtered lines.
+ */
+function getFilteredLines(file: string) {
+    const lines = file.split("\n");
+    const trimmed = lines.map(line => line.trim());
+
+    return removeInlineComments(trimmed);
+}
+
+/**
  * Splits the given file into lines, trims each line, and removes inline comments.
  * @param file The content of the file to process.
  * @returns The array of lines from the file, with inline comments removed.
  * @throws A ParserError if the file contains no lines.
  */
 export function getLinesOrThrow(file: string): string[] {
-    const lines = file.split("\n").map(line => line.trim());
+    const lines = getFilteredLines(file);
 
     if (!(lines.length > 1) && isFirstElementEmpty(lines)) {
-        throw new ParserError("Error processing language file. The file contains no JSON keys and or value pairs.");
+        throw new ParserError("The file contains no JSON keys and or value pairs.");
     }
 
-    return removeInlineComments(lines);
+    return lines;
 }
 
 /**
@@ -65,7 +79,7 @@ export function getKeyAndValuePairOrThrow(line: string) {
     const [ key , value ] = line.split(/"\s*"/).map(element => element.replace(/"/g, ""));
 
     if (key === undefined || key.length === 0) {
-        throw new ParserError("Error spliting line. The line contains no JSON key and or value.");
+        throw new ParserError("The line contains no JSON key and or value.");
     }
 
     return { key, value };
