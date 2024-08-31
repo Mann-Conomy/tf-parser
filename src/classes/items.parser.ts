@@ -17,7 +17,7 @@ export default class ItemsParser {
         const itemsFile = Parser.stringify(file);
 
         if (isFileEmpty(itemsFile)) {
-            throw new ParserError("Error processing items file. The file contains no JSON keys and or value pairs.");
+            throw new ParserError("The items file contains no JSON keys and or value pairs.");
         }
 
         return JSON.parse(itemsFile);

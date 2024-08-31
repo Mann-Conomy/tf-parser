@@ -36,7 +36,7 @@ export default class Stack {
      */
     pop(): StackObject | undefined {
         if (this.isEmpty()) {
-            throw new StackError("Error updating Stack. Cannot pop from an empty Stack.");
+            throw new StackError("Cannot pop from an empty Stack.");
         }
 
         return this.elements.pop();
@@ -49,13 +49,13 @@ export default class Stack {
      */
     peek(): StackObject {
         if (this.isEmpty()) {
-            throw new StackError("Error reading Stack. Cannot peek into an empty Stack.");
+            throw new StackError("Cannot peek into an empty Stack.");
         }
 
         const element = this.elements[this.elements.length - 1];
 
         if (element === undefined) {
-            throw new StackError("Error reading Stack. The last Stack element is undefined.");
+            throw new StackError("The last Stack element is undefined.");
         }
 
         return element;
