@@ -35,11 +35,12 @@ $ yarn test
 ```
 
 ## Examples
-Parsing UTF-16 encoded language files from the Team Fortress 2 game client into JSON objects.
+
+Parsing UTF-16 encoded localization files from the Team Fortress 2 game client into JSON objects.
 
 ```js
 import { readFile } from "fs/promises";
-import { LanguageParser } from "@mann-conomy/tf-parser";
+import { LocalizationParser } from "@mann-conomy/tf-parser";
 
 (async () => {
     try {
@@ -47,12 +48,38 @@ import { LanguageParser } from "@mann-conomy/tf-parser";
         const file = await readFile("tf_english.txt", { encoding: "utf16le" });
 
         // Parse english language translations
-        const { lang } = LanguageParser.parse(file);
+        const { lang } = LocalizationParser.parse(file);
 
         console.log(lang.Language); // English
         console.log(lang.Tokens.rarity4); // Unusual
     } catch (error) {
         console.error("Error parsing tf_english.txt", error.message);
+    }
+})();
+```
+
+Parsing the item schema from the Steam Web API.
+
+```js
+import { SchemaParser } from "@mann-conomy/tf-parser";
+
+(async() => {
+    try {
+        // Fetch the item schema from the Steam Web API
+        const response = await fetch("https://media.steampowered.com/apps/440/scripts/items/items_game.bdc614ad776fb2d43c1f247fce870485d2299152.txt");
+
+        // Resolve the response into a UTF-8 string
+        const items = await response.text();
+
+        // Parse the in-game items
+        const { items_game } = SchemaParser.parse(items);
+
+        console.log(items_game.rarities.unusual?.value); // 99
+        console.log(items_game.qualities.vintage?.value); // 3
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            console.error("Error parsing items_game.txt", error.message);
+        }
     }
 })();
 ```
@@ -67,4 +94,4 @@ See the [Wiki pages](https://github.com/Mann-Conomy/tf-parser/wiki) for further 
 
 [MIT](LICENSE)
 
-Copyright 2024, The Mann-Conomy Project
+Copyright 2025, The Mann-Conomy Project
