@@ -24,7 +24,7 @@ If applicable, provide an example of how the new feature or improvement would be
 ```js
 import { glob } from "glob";
 
-export default class LanguageParser {
+export default class LocalizationParser {
     ...
     static async match(path: string) {
         return await glob("tf_*.txt", { cwd: path });

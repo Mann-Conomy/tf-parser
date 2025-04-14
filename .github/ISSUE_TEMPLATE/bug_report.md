@@ -26,17 +26,17 @@ A clear and concise description of what you expected to happen.
 A clear and concise description of what happens.
 
 ## Minimal reproducible example
-Calling `LanguageParser.parse()` on the contents of `tf_english.txt` returns "Error parsing tf_english.txt...".
+Calling `LocalizationParser.parse()` on the contents of `tf_english.txt` returns "Error parsing tf_english.txt...".
 
 ```js
 import { readFile } from "fs/promises";
-import { LanguageParser } from "@mann-conomy/tf-parser";
+import { LocalizationParser } from "@mann-conomy/tf-parser";
 
 (async () => {
     try {
         const file = await readFile("tf_english.txt", { encoding: "utf16le" });
 
-        const { lang } = LanguageParser.parse(file);
+        const { lang } = LocalizationParser.parse(file);
 
         console.log(lang.Language);
         console.log(lang.Tokens.rarity4);

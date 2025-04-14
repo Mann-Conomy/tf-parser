@@ -31,9 +31,9 @@ export type LanguageCode =
     | "brazilian";
 
 /**
- * Represents a Team Fortress 2 language file parsed into a JSON object.
+ * Represents a Team Fortress 2 localization file parsed into a JSON object.
  */
-export interface LanguageFile {
+export interface LocalizationFile {
     lang: {
         /**
          * The language of the file.

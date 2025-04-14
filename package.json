@@ -57,5 +57,8 @@
   "directories": {
     "example": "examples",
     "test": "test"
+  },
+  "dependencies": {
+    "@mann-conomy/vdf-utils": "^1.0.0"
   }
 }

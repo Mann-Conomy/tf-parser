@@ -1,5 +1,5 @@
 import { readFile } from "fs/promises";
-import LanguageParser from "../src/classes/language.parser";
+import { LocalizationParser } from "../src/index";
 
 (async () => {
     try {
@@ -7,7 +7,7 @@ import LanguageParser from "../src/classes/language.parser";
         const file = await readFile("tf_english.txt", { encoding: "utf16le" });
 
         // Parse the english language translations
-        const { lang } = LanguageParser.parse(file);
+        const { lang } = LocalizationParser.parse(file);
 
         console.log(lang.Language); // English
         console.log(lang.Tokens.rarity4); // Unusual
