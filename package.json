@@ -1,6 +1,6 @@
 {
   "name": "@mann-conomy/tf-parser",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A Node.js parser for converting Team Fortress 2 game files to JSON objects.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

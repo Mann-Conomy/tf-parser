@@ -58,14 +58,14 @@ import { LocalizationParser } from "@mann-conomy/tf-parser";
 })();
 ```
 
-Parsing the item schema from the Steam Web API.
+Parsing the client schema from the Steam Web API.
 
 ```js
 import { SchemaParser } from "@mann-conomy/tf-parser";
 
 (async() => {
     try {
-        // Fetch the item schema from the Steam Web API
+        // Fetch the client schema from the Steam Web API
         const response = await fetch("https://media.steampowered.com/apps/440/scripts/items/items_game.bdc614ad776fb2d43c1f247fce870485d2299152.txt");
 
         // Resolve the response into a UTF-8 string
