@@ -10,9 +10,9 @@ describe("SchemaParser", () => {
         expect(parser).toBeInstanceOf(SchemaParser);
     });
 
-    test("should return item schema tokens given a valid file string", () => {
+    test("should return client schema tokens given a valid file string", () => {
         // Arrange
-        const file = createItemSchema();
+        const file = createClientSchema();
 
         // Act
         const { items_game } = SchemaParser.parse(file);
@@ -49,9 +49,9 @@ describe("SchemaParser", () => {
 });
 
 /**
- * Creates a mock string of a Team Fortress 2 item schema.
- * @returns { string } A mock string of a Team Fortress 2 item schema.
+ * Creates a mock string of a Team Fortress 2 client schema.
+ * @returns { string } A mock string of a Team Fortress 2 client schema.
  */
-function createItemSchema(): string {
+function createClientSchema(): string {
     return "\"items_game\"\n\{\n\"qualities\"\n{\n\"vintage\"\n{\n\"value\"\t\"3\"\n}\n\"strange\"\n{\n\"value\"\t\"11\"\n}\n}";
 }

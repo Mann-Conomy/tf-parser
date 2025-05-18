@@ -3798,9 +3798,9 @@ export interface WarDefinition {
 }
 
 /**
- * Represents a Team Fortress 2 item schema parsed into a JSON object.
+ * Represents the Team Fortress 2 client schema parsed into a JSON object.
  */
-export interface ItemSchema {
+export interface ClientSchema {
     items_game: {
         game_info: Record<string, string>;
         qualities: Record<string, ItemQuality>;
