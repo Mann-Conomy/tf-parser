@@ -3797,44 +3797,46 @@ export interface WarDefinition {
     sides: Record<string, WarDefinitionSide>;
 }
 
+export interface GameSchema {
+    game_info: Record<string, string>;
+    qualities: Record<string, ItemQuality>;
+    colors: Record<string, ItemColor>;
+    rarities: Record<string, ItemRarity>;
+    equip_regions_list: Record<string, GenericItemValue>;
+    equip_conflict: Record<string, ItemEquipConflict>;
+    quest_objective_conditions: Record<string, ItemQuestObjectiveCondition>;
+    item_series_types: ItemSeriesType;
+    item_collections: Record<string, ItemCollection>;
+    operations: Record<string, ItemOperation>;
+    prefabs: ItemPrefab;
+    items: DefaultItem;
+    attributes: Record<string, ItemAttribute>;
+    item_criteria_templates: Record<string, ItemCriteriaTemplate>;
+    random_attribute_templates: Record<string, RandomItemAttributeTemplate>;
+    lootlist_job_template_definitions: Record<string, ItemLootlistJobTemplateDefinition>;
+    item_sets: Record<string, ItemSet>;
+    client_loot_lists: Record<string, ItemClientLootList>;
+    revolving_loot_lists: Record<string, string>;
+    recipes: Record<string, ItemRecipe>;
+    achievement_rewards: Record<string, ItemAchievementReward>;
+    attribute_controlled_attached_particles: ItemAttributeControlledAttachedParticle;
+    armory_data: ItemArmoryData,
+    item_levels: ItemLevel;
+    kill_eater_score_types: Record<string, ItemKillEaterScoreType>;
+    mvm_maps: Record<string, MvMMap>;
+    mvm_tours: Record<string, MvMTour>;
+    matchmaking_categories: Record<string, MatchmakingCategory>;
+    maps: Record<string, ItemMap>;
+    master_maps_list: Record<string, MasterMapsList>;
+    steam_packages: Record<string, SteamPackages>;
+    string_lookups: Record<string, ItemStringLookup>;
+    community_market_item_remaps: Record<string, CommunityMarketItemRemap>;
+    war_definitions: Record<string, WarDefinition>;
+}
+
 /**
  * Represents the Team Fortress 2 client schema parsed into a JSON object.
  */
 export interface ClientSchema {
-    items_game: {
-        game_info: Record<string, string>;
-        qualities: Record<string, ItemQuality>;
-        colors: Record<string, ItemColor>;
-        rarities: Record<string, ItemRarity>;
-        equip_regions_list: Record<string, GenericItemValue>;
-        equip_conflict: Record<string, ItemEquipConflict>;
-        quest_objective_conditions: Record<string, ItemQuestObjectiveCondition>;
-        item_series_types: ItemSeriesType;
-        item_collections: Record<string, ItemCollection>;
-        operations: Record<string, ItemOperation>;
-        prefabs: ItemPrefab;
-        items: DefaultItem;
-        attributes: Record<string, ItemAttribute>;
-        item_criteria_templates: Record<string, ItemCriteriaTemplate>;
-        random_attribute_templates: Record<string, RandomItemAttributeTemplate>;
-        lootlist_job_template_definitions: Record<string, ItemLootlistJobTemplateDefinition>;
-        item_sets: Record<string, ItemSet>;
-        client_loot_lists: Record<string, ItemClientLootList>;
-        revolving_loot_lists: Record<string, string>;
-        recipes: Record<string, ItemRecipe>;
-        achievement_rewards: Record<string, ItemAchievementReward>;
-        attribute_controlled_attached_particles: ItemAttributeControlledAttachedParticle;
-        armory_data: ItemArmoryData,
-        item_levels: ItemLevel;
-        kill_eater_score_types: Record<string, ItemKillEaterScoreType>;
-        mvm_maps: Record<string, MvMMap>;
-        mvm_tours: Record<string, MvMTour>;
-        matchmaking_categories: Record<string, MatchmakingCategory>;
-        maps: Record<string, ItemMap>;
-        master_maps_list: Record<string, MasterMapsList>;
-        steam_packages: Record<string, SteamPackages>;
-        string_lookups: Record<string, ItemStringLookup>;
-        community_market_item_remaps: Record<string, CommunityMarketItemRemap>;
-        war_definitions: Record<string, WarDefinition>;
-    }
+    items_game: GameSchema;
 }
